@@ -1,0 +1,7 @@
+resource_group_name = "rg-terraform-dev"
+location            = "Australia East"
+vnet_name  = "vnet-dev"
+subnet_name = "subnet-dev"
+vm_name        = "terraform-vm"
+admin_username = "azureuser"
+vm_size        = "Standard_B2as_v2"
