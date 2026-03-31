@@ -24,5 +24,8 @@
       resource_group_name = var.resource_group_name
       location            = var.location
       env                 = "dev"
+      vnet_name           = var.vnet_name
+      subnet_name         = var.subnet_name
+      subnet_id           = module.network.subnet_id
       depends_on = [module.network] 
     }
