@@ -18,3 +18,11 @@
       subnet_id = module.network.subnet_id
       depends_on = [module.network]
     }
+    module "aks" {
+      source = "./modules/aks"
+
+      resource_group_name = var.resource_group_name
+      location            = var.location
+      env                 = "dev"
+      depends_on = [module.network] 
+    }
