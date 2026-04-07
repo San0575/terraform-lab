@@ -35,3 +35,17 @@ jobs:
 
     - name: Terraform Apply
       run: terraform apply -auto-approve -var-file="environments/dev.tfvars"
+      # new part for deploying to AKS
+    - name: Install kubectl
+      run:  az aks install-cli
+
+    - name: Get AKS Credentials
+      run: |
+        az aks get-credentials \
+          --resource-group rg-terraform-dev \
+          --name aks-dev \
+          --overwrite-existing
+
+    - name: Deploy to AKS
+      run: |
+        kubectl apply -f k8s/nginx.yaml      
